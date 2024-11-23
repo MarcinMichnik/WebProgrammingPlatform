@@ -9,7 +9,8 @@ export class FetchDataComponent {
   public processingResponse: ProcessingResponse | undefined;
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<ProcessingResponse>(baseUrl + 'processing').subscribe(result => {
+    let body: string = '{ "contenttobeprocessed": "1 + 2;" }';
+    http.post<ProcessingResponse>(baseUrl + 'processing/post', body).subscribe(result => {
       this.processingResponse = result;
     }, error => console.error(error));
   }

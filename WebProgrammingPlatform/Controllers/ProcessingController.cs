@@ -14,6 +14,12 @@ namespace WebProgrammingPlatform.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
+        public string Get()
+        {
+            return "";
+        }
+
         [HttpPost]
         public ProcessingResponse Post([FromBody] ProcessingRequest processingRequest)
         {
